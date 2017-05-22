@@ -24,7 +24,8 @@ public final class StringUtil {
 	 */
 	public static String trimEnd(String str, String suffix){
 		if (str.endsWith(suffix)) {
-			return str.substring(0, str.length() - suffix.length());
+			str = str.substring(0, str.length() - suffix.length());
+			return trimEnd(str, suffix);
 		}
 		return str;
 	}
@@ -38,7 +39,8 @@ public final class StringUtil {
 	 */
 	public static String trimStart(String str, String suffix) {
 		if(str.startsWith(suffix)){
-			return str.substring(suffix.length(),str.length());
+			str = str.substring(suffix.length(),str.length());
+			return trimStart(str, suffix);
 		}
 		return str;
 	}
