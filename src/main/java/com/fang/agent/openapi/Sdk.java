@@ -104,7 +104,7 @@ public final class Sdk {
 		}
 
 		Map<String, String> params = new HashMap<String, String>();
-		params.put(USERNAME_ARG_NAME, userName);
+		params.put(USERNAME_ARG_NAME, URLEncoder.encode(userName, "UTF-8"));
 		params.put(PASSWORD_ARG_NAME, URLEncoder.encode(pwd, "UTF-8"));
 		params.put(COMPANYID_ARG_NAME, this.companyId);
 
