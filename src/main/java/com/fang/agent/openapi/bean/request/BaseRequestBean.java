@@ -67,7 +67,7 @@ public abstract class BaseRequestBean {
 					field.setAccessible(true);
 					Object fieldValue = field.get(this);
 					if (fieldValue != null) {
-						argMap.put(argument.name(), URLEncoder.encode(fieldValue.toString(), "UTF-8"));
+						argMap.put(argument.name(), URLEncoder.encode(fieldValue.toString(), "GBK"));
 					}
 				}
 			}
