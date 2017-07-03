@@ -23,6 +23,7 @@ import com.fang.agent.openapi.bean.request.house.HouseRefreshRequest;
 import com.fang.agent.openapi.bean.request.house.HouseReleaseRequest;
 import com.fang.agent.openapi.bean.request.house.HouseTitlePhotoModifyRequest;
 import com.fang.agent.openapi.bean.request.house.HouseUnreleaseRequest;
+import com.fang.agent.openapi.bean.request.house.RefreshSolutionListRequest;
 import com.fang.agent.openapi.bean.response.agent.AgentDetailResponse;
 import com.fang.agent.openapi.bean.response.agent.AgentPortInfoResponse;
 import com.fang.agent.openapi.bean.response.house.HouseDeleteResponse;
@@ -37,6 +38,7 @@ import com.fang.agent.openapi.bean.response.house.HouseReleaseResponse;
 import com.fang.agent.openapi.bean.response.house.HouseTitlePhotoModifyResponse;
 import com.fang.agent.openapi.bean.response.house.HouseUnreleaseResponse;
 import com.fang.agent.openapi.bean.response.house.HouseUpdateReponse;
+import com.fang.agent.openapi.bean.response.house.RefreshSolutionListResponse;
 import com.fang.agent.openapi.util.SecurityUtil;
 import com.fang.agent.openapi.util.StringUtil;
 import com.fang.agent.openapi.util.crypto.CryptUtil;
@@ -73,6 +75,8 @@ public final class Sdk {
 	private static final String HOUSE_PHOTO_ADD = "/House/HousePhotoAdd";
 	private static final String HOUSE_PHOTO_DEL = "/House/HousePhotoDelete";
 	private static final String HOUSE_TITLE_PHOTO_MOD = "/House/HouseTitlePictureModify";
+
+	private static final String HOUSE_REFRESH_SOLUTION = "/House/RefreshSolutionList";
 
 	private static final String AGENT_DETAIL_RESOURCE = "/Agent/Detail";
 	private static final String AGENT_PORT_INFO_RESOURCE = "/Agent/PortInfo";
@@ -222,6 +226,13 @@ public final class Sdk {
 		}
 
 		return sb.toString();
+	}
+
+	/**
+	 * 获取预约刷新方案列表
+	 */
+	public RefreshSolutionListResponse RefreshSolutionList(int agentId, RefreshSolutionListRequest request) {
+		return this.requestTemplate(agentId, HOUSE_REFRESH_SOLUTION, HttpRequest.METHOD_GET, request, RefreshSolutionListResponse.class);
 	}
 
 	/**
